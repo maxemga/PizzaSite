@@ -10,11 +10,28 @@ a {
 /* HEADER */
 header {
   position: fixed;
-  width: 70%;
+  width: 100%;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  z-index: 100;
+  z-index: 80;
+}
+
+.headerOverlay {
+  background-color: rgba(0, 0, 0, 0);
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.headerOverlay.activityHeader {
+  background-color: rgba(0, 0, 0, 0.7);
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.navContent {
+  max-width: 70%;
+  margin: 0 auto;
 }
 
 .navLogo img {
@@ -109,10 +126,6 @@ nav a:hover {
   position: relative;
 }
 
-.slideIMG {
-  max-height: 100%;
-}
-
 .slideContent {
   position: absolute;
   left: 50%;
@@ -135,6 +148,15 @@ nav a:hover {
   font-size: 1.3vw;
 }
 
+.slideContent img {
+  max-width: 100%;
+  height: auto;
+}
+
+.slideIcons {
+  margin-bottom: 80px;
+}
+
 .slideButtons {
   margin: 0 auto;
 }
@@ -148,6 +170,8 @@ nav a:hover {
   letter-spacing: 3px;
   margin-left: 10px;
   margin-right: 15px;
+  -webkit-transition: .3s;
+  transition: .3s;
 }
 
 .slideButtons button:nth-child(2) {
@@ -168,20 +192,21 @@ nav a:hover {
   transition: .2s;
 }
 
-/* CONTACT */
-.contactBlock {
-  position: relative;
-  bottom: 50px;
+.modalNavBlock {
+  display: none;
 }
 
+/* CONTACT */
 .contactBlockWrapper {
   margin: 0 auto;
   max-width: 70%;
 }
 
 .contactContent {
+  position: relative;
+  bottom: 65px;
   background-color: #FD4100;
-  padding: 38px 48px;
+  padding: 28px 48px;
   width: 100%;
   background: url("https://ninzio.com/gustablo/wp-content/uploads/2018/03/section_bg1.jpg") center;
 }
@@ -207,10 +232,67 @@ nav a:hover {
 }
 
 /* */
+/* GALLERY */
+.galleryBlock {
+  background-color: #FFFEFB;
+}
+
+.galleryWrapper {
+  margin: 0 auto;
+  max-width: 70%;
+}
+
+.galleryContent {
+  padding-top: 90px;
+  padding-bottom: 80px;
+  text-align: center;
+}
+
+.galleryContent h1 {
+  color: #222222;
+}
+
+.galleryContent p:nth-child(2) {
+  border-top: 1px solid #777777;
+  max-width: 900px;
+  margin: 0 auto;
+  color: #777777;
+  font-size: 18px;
+  margin-top: 30px;
+  padding-top: 30px;
+}
+
+.galleryContent button {
+  border: 1px solid #DDDDDD;
+  padding: 10px 80px;
+  outline: none;
+  letter-spacing: 3px;
+  background: none;
+  color: #777777;
+  -webkit-transition: .2s linear;
+  transition: .2s linear;
+  margin-top: 45px;
+}
+
+.galleryContent button:hover {
+  -webkit-transition: .3s linear;
+  transition: .3s linear;
+  background-color: #FD4100;
+  color: white;
+  border-color: #FD4100;
+}
+
+/* */
 /* */
 @media screen and (max-width: 1400px) {
   /* HEADER */
   .contactBlockWrapper {
+    max-width: 80%;
+  }
+  .galleryWrapper {
+    max-width: 80%;
+  }
+  .navContent {
     max-width: 80%;
   }
 }
@@ -225,6 +307,15 @@ nav a:hover {
     color: white;
     font-size: 2vw;
   }
+  .galleryWrapper {
+    max-width: 90%;
+  }
+  .contactBlockWrapper {
+    max-width: 90%;
+  }
+  .navContent {
+    max-width: 90%;
+  }
   /* */
 }
 
@@ -238,6 +329,7 @@ nav a:hover {
   }
   /* MODAL NAV */
   .modalNavBlock {
+    display: block;
     position: fixed;
     top: 0;
     right: 0;
@@ -246,8 +338,8 @@ nav a:hover {
     height: 100%;
     -webkit-transform: translateX(100%);
             transform: translateX(100%);
-    -webkit-transition: .3s;
-    transition: .3s;
+    -webkit-transition: .7s;
+    transition: .7s;
   }
   .modalNavContent {
     padding-top: 150px;
@@ -266,11 +358,50 @@ nav a:hover {
     font-size: 40px;
     font-weight: bold;
   }
+  .modalNavBlack {
+    position: fixed;
+    z-index: 90;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.3;
+    display: none;
+  }
+  .modalNavBlack.activeNavBlack {
+    -webkit-animation: show .8s;
+            animation: show .8s;
+    display: block;
+    opacity: 0.7;
+  }
   .modalNavBlock.activeNavModal {
     -webkit-transform: translateX(0%);
             transform: translateX(0%);
-    -webkit-transition: .3s;
-    transition: .3s;
+    -webkit-transition: .7s;
+    transition: .7s;
+  }
+  @-webkit-keyframes show {
+    0% {
+      opacity: 0.3;
+    }
+    100% {
+      opacity: 0.7;
+    }
+  }
+  @keyframes show {
+    0% {
+      opacity: 0.3;
+    }
+    100% {
+      opacity: 0.7;
+    }
+  }
+  .galleryWrapper {
+    max-width: 90%;
+  }
+  .navContent {
+    max-width: 90%;
   }
   /* */
   /* */
@@ -286,6 +417,22 @@ nav a:hover {
     color: white;
     font-size: 3vw;
   }
+  .modalNavContent {
+    padding-top: 150px;
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+  .modalNavContent {
+    padding-top: 150px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .modalNavContent a {
+    font-size: 35px;
+  }
+  .slideButtons button {
+    margin-top: 50px;
+  }
   /* */
 }
 
@@ -298,6 +445,14 @@ nav a:hover {
   .slideContent p {
     color: white;
     font-size: 4vw;
+  }
+  .modalNavContent {
+    padding-top: 150px;
+    padding-left: 30px;
+    padding-right: 40px;
+  }
+  .modalNavContent a {
+    font-size: 30px;
   }
   /* */
 }

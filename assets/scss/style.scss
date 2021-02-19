@@ -6,15 +6,36 @@
 a {
     text-decoration: none;
 }
+$colorTextTitle: #222222;
+$colorTextParagraphe: #777777;
+
+
+$sizeTextParagraphe: 18px;
 
 /* HEADER */
 header {
     position: fixed;
-    width: 70%;
+    width: 100%;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 100;
+    z-index: 80;   
+    
 }
+
+.headerOverlay {
+    background-color: rgba(0, 0, 0, 0);
+    transition: .3s;
+}
+.headerOverlay.activityHeader {
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: .3s;
+}
+
+.navContent {
+    max-width: 70%;
+    margin: 0 auto;
+}
+
 .navLogo img {
     height: 40px;
     width: 200px;
@@ -105,8 +126,7 @@ nav {
     position: relative;
 }
 .slideIMG {
-    // max-width: 100%;
-    max-height: 100%;
+    
 }
 
 .slideContent {
@@ -126,8 +146,17 @@ nav {
         color: white;    
         font-size: 1.3vw;
     }
+    img {
+        max-width: 100%;
+        height: auto;
+    }
     
 }
+
+.slideIcons {
+    margin-bottom: 80px;
+}
+
 .slideButtons {
     margin: 0 auto;
     button {
@@ -139,6 +168,7 @@ nav {
         letter-spacing: 3px;
         margin-left: 10px;
         margin-right: 15px;
+        transition: .3s;
     }
     button:nth-child(2) {
         background-color: white;
@@ -155,19 +185,21 @@ nav {
     }
 }
 
+.modalNavBlock {
+    display: none;
+}
 
 /* CONTACT */
-.contactBlock {
-    position: relative;
-    bottom: 50px;
-}
+
 .contactBlockWrapper {
     margin: 0 auto;
     max-width: 70%;
 }
 .contactContent {
+    position: relative;
+    bottom: 65px;
     background-color: #FD4100;
-    padding: 38px 48px;
+    padding: 28px 48px;
     width: 100%;
     background: url("https://ninzio.com/gustablo/wp-content/uploads/2018/03/section_bg1.jpg") center;
     input {
@@ -193,11 +225,65 @@ nav {
 }
 /* */
 
+/* GALLERY */
+
+.galleryBlock {
+    background-color: #FFFEFB;
+}
+.galleryWrapper {
+    margin: 0 auto;
+    max-width: 70%;
+    
+}
+.galleryContent {
+    padding-top: 90px;
+    padding-bottom: 80px;
+    text-align: center;
+    h1 {
+        color: $colorTextTitle;
+    }
+    p:nth-child(2) {
+        border-top: 1px solid $colorTextParagraphe;
+        max-width: 900px;
+        margin: 0 auto;
+        color: $colorTextParagraphe;
+        font-size: $sizeTextParagraphe;
+        margin-top: 30px;
+        padding-top: 30px;
+    }
+    button {
+        border: 1px solid #DDDDDD;
+        padding: 10px 80px;
+        outline: none;
+        letter-spacing: 3px;
+        background: none;
+        color: $colorTextParagraphe;
+        transition: .2s linear;
+        margin-top: 45px;
+    }
+    button:hover {
+        transition: .3s linear;
+        background-color: #FD4100;
+        color: white;
+        border-color: #FD4100;
+    }
+}
+$speedGalleryAnimation: .3s;
+
+
+
+/* */
 
 /* */
 @media screen and (max-width: 1400px) {
     /* HEADER */
     .contactBlockWrapper {
+        max-width: 80%;
+    }
+    .galleryWrapper {
+        max-width: 80%;      
+    }
+    .navContent {
         max-width: 80%;
     }
     // /* */
@@ -216,6 +302,15 @@ nav {
         }
         
     }
+    .galleryWrapper {
+        max-width: 90%;      
+    }
+    .contactBlockWrapper {
+        max-width: 90%;
+    }
+    .navContent {
+        max-width: 90%;
+    }
     /* */
  
 }
@@ -230,6 +325,7 @@ nav {
 
     /* MODAL NAV */
     .modalNavBlock {
+        display: block;
         position: fixed;
         top: 0;
         right: 0;
@@ -237,7 +333,7 @@ nav {
         z-index: 100;
         height: 100%;
         transform: translateX(100%);
-        transition: .3s;
+        transition: .7s;
     }
     .modalNavContent {
         padding-top: 150px;
@@ -257,10 +353,38 @@ nav {
             font-weight: bold;
         }
     }
+    .modalNavBlack {
+        position: fixed;
+        z-index: 90;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: black;
+        opacity: 0.3;
+        display: none;
+    }
+    .modalNavBlack.activeNavBlack {
+        animation: show .8s;
+        display: block;
+        opacity: 0.7;
+    }
     .modalNavBlock.activeNavModal {
         transform: translateX(0%);
-        transition: .3s;
+        transition: .7s;
     }
+    @keyframes show {
+        0% {opacity: 0.3;}
+        100% {opacity: 0.7;}
+    }
+
+    .galleryWrapper {
+        max-width: 90%;      
+    }
+    .navContent {
+        max-width: 90%;
+    }
+
 /* */
     /* */
  
@@ -279,8 +403,29 @@ nav {
         }
         
     }
+    .modalNavContent {
+        padding-top: 150px;
+        padding-left: 70px;
+        padding-right: 70px;
+    }
+
+    .modalNavContent {
+        padding-top: 150px;
+        padding-left: 40px;
+        padding-right: 40px;
+        a {
+            font-size: 35px;
+        }
+    }
+    .slideButtons {
+        
+        button {
+            margin-top: 50px;
+        }     
+    }
     /* */
 }
+
 @media screen and (max-width: 576px) {
     /* HEADER */
 
@@ -295,6 +440,14 @@ nav {
             font-size: 4vw;
         }
         
+    }
+    .modalNavContent {
+        padding-top: 150px;
+        padding-left: 30px;
+        padding-right: 40px;
+        a {
+            font-size: 30px;
+        }
     }
     /* */
 }

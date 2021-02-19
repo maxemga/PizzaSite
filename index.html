@@ -11,9 +11,9 @@
     <title>PIZZA</title>
 </head>
 <body>
-    <header>
-            <div class="container-sm"></div>
-                <div class="navContent d-flex justify-content-between align-items-center">
+    <header >  
+      <div class="headerOverlay" id="headerOverlay">
+                <div class="navContent d-flex justify-content-between align-items-center" id="navContent">
                     <div class="navLogo">
                         <a href=""> <img src="images/logo@2.png" alt=""> </a>
                     </div>
@@ -30,8 +30,8 @@
                         <a href="box">s </a>
                         <span class="search-icon gustablo-magnifier3"></span>
                     </nav>
-                </div>
-        </div>
+                </div>  
+    </div>             
     </header>
     <div class="modalNavBlock" id="modalNavBlock">
       <div class="modalNavContent">
@@ -44,9 +44,10 @@
         </ul>
       </div>
     </div>
+    <div class="modalNavBlack" id="modalNavBlack"></div>
     <div class="sliderBlock">
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-            <ol class="carousel-indicators mb-5">
+            <ol class="slideIcons carousel-indicators">
               <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
               <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
               <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
@@ -98,8 +99,7 @@
               <span class="visually-hidden">Next</span>
             </a>
             
-          </div>
-          <div class="contactBlock">
+          </div>         
             <div class="contactBlockWrapper">
               <div class="contactContent">
                 <form action="" class="row justify-content-between">
@@ -110,20 +110,22 @@
                 </form>
               </div>
             </div>
-          </div>
+          <div class="galleryBlock">
+            <div class="galleryWrapper">
+              <div class="galleryContent">
+                <h1>WELCOME TO GUSTABLO</h1>
+                <p>Here are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form by injected humour, or randomised words which don't look</p>
+                <div class="galleryProducts">
+                  <div class="row">  
+                    <!-- class="galleryContainer col-xs-12 col-sm-6 col-lg-4" -->
 
-          <!-- <div class="contactBlock">
-            <div class="contactBlockWrapper">
-              <div class="contactContent">
-                <form action="" class="d-flex justify-content-between">
-                  <input type="text" placeholder="NAME">
-                  <input type="text" placeholder="EMAIL">
-                  <input type="text" placeholder="MESSAGE">
-                  <button> CONTACT US</button>
-                </form>
+                  </div>
+                </div>
+                
+                <button>VIEW GALLERY</button>
               </div>
             </div>
-          </div> -->
+          </div>
           
     </div>
 
