@@ -19,7 +19,9 @@ header {
     left: 50%;
     transform: translateX(-50%);
     z-index: 80;   
-    
+    i {
+        color: white;
+    }
 }
 
 .headerOverlay {
@@ -232,8 +234,7 @@ nav {
 }
 .galleryWrapper {
     margin: 0 auto;
-    max-width: 70%;
-    
+    max-width: 70%;   
 }
 .galleryContent {
     padding-top: 90px;
@@ -243,7 +244,7 @@ nav {
         color: $colorTextTitle;
     }
     p:nth-child(2) {
-        border-top: 1px solid $colorTextParagraphe;
+        border-top: 3px solid $colorTextParagraphe;
         max-width: 900px;
         margin: 0 auto;
         color: $colorTextParagraphe;
@@ -268,9 +269,196 @@ nav {
         border-color: #FD4100;
     }
 }
-$speedGalleryAnimation: .3s;
+.galleryContainer {
+    overflow: hidden;
+    margin-top: 30px;
+    position: relative;
+    cursor: pointer;
+    a {
+        color: $colorTextParagraphe;
+        transition: .2s linear;
+        font-size: 15px;
+        font-weight: 700;
+    }
+    a:hover {
+        color: #FD4100;
+        transition: .1s linear;
+    }
+}
+$speedGalleryAnimation: .2s;
+$speedGalleryIcon: .3s;
 
 
+.galleryContainerText {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    background-color: white;
+    width: 100%;
+    padding: 5px 0;
+    transition: $speedGalleryAnimation linear;
+}
+
+.galleryContainerText.activeGalleryText {
+    transform: translate(-50%, 0);
+    transition: $speedGalleryAnimation linear;
+}
+.galleryContainerImage{
+    transform: translateY(0%);
+    transition: $speedGalleryAnimation linear;
+
+}
+.galleryContainerImage.activeGallery{
+    transform: translateY(-10%);
+    transition: $speedGalleryAnimation linear;
+}
+
+.galleryIcons {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    i {
+        color: white;
+        padding: 10px;
+        background-color: #FD4100;
+    }
+    i:hover {
+        background-color: #1F2323;
+        transition: .2s linear;
+    }
+}
+.galleryIcon1 {
+    transform: translateX(-50%);
+    transition: $speedGalleryIcon;
+    opacity: 0;
+}
+.galleryIcon2 {
+    transform: translateX(50%);
+    transition: $speedGalleryIcon;
+    opacity: 0;
+}
+.galleryIcon1.activityIcon {
+    transform: translateX(0%);
+    opacity: 1;
+    transition: $speedGalleryIcon;
+}
+.galleryIcon2.activityIcon {
+    transform: translateX(0%);
+    opacity: 1;
+    transition: $speedGalleryIcon;
+}
+
+/* */
+
+/* CHEF */
+
+
+/* */
+
+/* COUNTER */
+.counterBlock {
+    background-color: #F5F5F5;
+}
+.counterWrapper {
+    margin: 0 auto;
+    max-width: 65%; 
+}
+.counterContent {
+    padding: 50px 0;
+    text-align: center;
+
+    h1 {
+        color: #FD4100;
+        font-size: 60px;
+        font-weight: bold;
+    }
+    p {
+        color: $colorTextParagraphe;
+        font-weight: bold;
+    }
+}
+/* */
+
+/* OFFERS */
+.offersBlock {
+    background-image: url("../../images/offersBackground.jpg");
+    padding-top: 140px;
+}
+.offersWrapper {
+    margin: 0 auto;
+    width: 70%;
+}
+.offersContent {
+    background-color: white;
+    padding-bottom: 80px;
+    padding-top: 60px;
+    h1:nth-child(1) {
+        text-align: center;
+        border-bottom: 3px solid $colorTextParagraphe;
+        width: 50%;
+        margin: 0 auto;
+        padding-bottom: 40px;
+        line-height: 40px;
+    }
+    img {
+        height: 100px;
+        width: 100px;
+    }
+}
+.offersContainers {
+    padding-top: 30px;
+}
+.offersText {
+    margin-left: 30px;
+    p {
+        color: $colorTextParagraphe;
+        font-size: 15px;
+        margin-top: 10px;
+    }
+}
+.offersContentWrapper {
+    margin: 0 auto;
+    width: 90%;
+    button {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #FD4100;
+        border: none;
+        padding: 10px 80px;
+        outline: none;
+        letter-spacing: 3px;
+        color: $colorTextParagraphe;
+        transition: .2s linear;
+        margin-top: 60px;
+        color: white;
+    }
+    button:hover {
+        transition: .3s linear;
+        background-color: #1F2323;
+        color: white;
+    }
+}
+.offersContainer {
+    padding: 20px;
+    background-color: #F5F5F5;
+    margin-top: 20px;
+    display: flex;
+    position: relative;
+    width: 49%;
+}
+.food-title {
+    background-color: #F5F5F5;
+}
+.food-price {
+    background-color: #F5F5F5;
+    color: #FD4100;
+}
+.food-dots {
+    width: 0%;
+}
 
 /* */
 
@@ -286,6 +474,17 @@ $speedGalleryAnimation: .3s;
     .navContent {
         max-width: 80%;
     }
+    .chefWrapper {
+        max-width: 80%;  
+    }
+    .offersWrapper {
+        margin: 0 auto;
+        width: 70%;
+    }
+    .offersContentWrapper {
+        margin: 0 auto;
+        width: 90%;
+    }    
     // /* */
 }
 @media screen and (max-width: 1200px) {
@@ -311,6 +510,21 @@ $speedGalleryAnimation: .3s;
     .navContent {
         max-width: 90%;
     }
+    .chefWrapper {
+        max-width: 80%;  
+    }
+    .counterWrapper {
+        margin: 0 auto;
+        max-width: 80%; 
+    }
+    .offersWrapper {
+        margin: 0 auto;
+        width: 70%;
+    }
+    .offersContentWrapper {
+        margin: 0 auto;
+        width: 85%;
+    }   
     /* */
  
 }
@@ -384,6 +598,21 @@ $speedGalleryAnimation: .3s;
     .navContent {
         max-width: 90%;
     }
+    .chefWrapper {
+        max-width: 80%;  
+    }
+    .counterWrapper {
+        margin: 0 auto;
+        max-width: 90%; 
+    }
+    .offersWrapper {
+        margin: 0 auto;
+        width: 90%;
+    }
+    .offersContentWrapper {
+        margin: 0 auto;
+        width: 90%;
+    }  
 
 /* */
     /* */
@@ -422,6 +651,17 @@ $speedGalleryAnimation: .3s;
         button {
             margin-top: 50px;
         }     
+    }
+    .offersWrapper {
+        margin: 0 auto;
+        width: 80%;
+    }
+    .offersContentWrapper {
+        margin: 0 auto;
+        width: 80%;
+    }  
+    .offersContainer {
+        width: 100%;
     }
     /* */
 }

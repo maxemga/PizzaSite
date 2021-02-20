@@ -17,6 +17,10 @@ header {
   z-index: 80;
 }
 
+header i {
+  color: white;
+}
+
 .headerOverlay {
   background-color: rgba(0, 0, 0, 0);
   -webkit-transition: .3s;
@@ -253,7 +257,7 @@ nav a:hover {
 }
 
 .galleryContent p:nth-child(2) {
-  border-top: 1px solid #777777;
+  border-top: 3px solid #777777;
   max-width: 900px;
   margin: 0 auto;
   color: #777777;
@@ -282,6 +286,241 @@ nav a:hover {
   border-color: #FD4100;
 }
 
+.galleryContainer {
+  overflow: hidden;
+  margin-top: 30px;
+  position: relative;
+  cursor: pointer;
+}
+
+.galleryContainer a {
+  color: #777777;
+  -webkit-transition: .2s linear;
+  transition: .2s linear;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.galleryContainer a:hover {
+  color: #FD4100;
+  -webkit-transition: .1s linear;
+  transition: .1s linear;
+}
+
+.galleryContainerText {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, 100%);
+          transform: translate(-50%, 100%);
+  background-color: white;
+  width: 100%;
+  padding: 5px 0;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+
+.galleryContainerText.activeGalleryText {
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+
+.galleryContainerImage {
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+
+.galleryContainerImage.activeGallery {
+  -webkit-transform: translateY(-10%);
+          transform: translateY(-10%);
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+
+.galleryIcons {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.galleryIcons i {
+  color: white;
+  padding: 10px;
+  background-color: #FD4100;
+}
+
+.galleryIcons i:hover {
+  background-color: #1F2323;
+  -webkit-transition: .2s linear;
+  transition: .2s linear;
+}
+
+.galleryIcon1 {
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.galleryIcon2 {
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.galleryIcon1.activityIcon {
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+  opacity: 1;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.galleryIcon2.activityIcon {
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+  opacity: 1;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+/* */
+/* CHEF */
+/* */
+/* COUNTER */
+.counterBlock {
+  background-color: #F5F5F5;
+}
+
+.counterWrapper {
+  margin: 0 auto;
+  max-width: 65%;
+}
+
+.counterContent {
+  padding: 50px 0;
+  text-align: center;
+}
+
+.counterContent h1 {
+  color: #FD4100;
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.counterContent p {
+  color: #777777;
+  font-weight: bold;
+}
+
+/* */
+/* OFFERS */
+.offersBlock {
+  background-image: url("../../images/offersBackground.jpg");
+  padding-top: 140px;
+}
+
+.offersWrapper {
+  margin: 0 auto;
+  width: 70%;
+}
+
+.offersContent {
+  background-color: white;
+  padding-bottom: 80px;
+  padding-top: 60px;
+}
+
+.offersContent h1:nth-child(1) {
+  text-align: center;
+  border-bottom: 3px solid #777777;
+  width: 50%;
+  margin: 0 auto;
+  padding-bottom: 40px;
+  line-height: 40px;
+}
+
+.offersContent img {
+  height: 100px;
+  width: 100px;
+}
+
+.offersContainers {
+  padding-top: 30px;
+}
+
+.offersText {
+  margin-left: 30px;
+}
+
+.offersText p {
+  color: #777777;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.offersContentWrapper {
+  margin: 0 auto;
+  width: 90%;
+}
+
+.offersContentWrapper button {
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background-color: #FD4100;
+  border: none;
+  padding: 10px 80px;
+  outline: none;
+  letter-spacing: 3px;
+  color: #777777;
+  -webkit-transition: .2s linear;
+  transition: .2s linear;
+  margin-top: 60px;
+  color: white;
+}
+
+.offersContentWrapper button:hover {
+  -webkit-transition: .3s linear;
+  transition: .3s linear;
+  background-color: #1F2323;
+  color: white;
+}
+
+.offersContainer {
+  padding: 20px;
+  background-color: #F5F5F5;
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  width: 49%;
+}
+
+.food-title {
+  background-color: #F5F5F5;
+}
+
+.food-price {
+  background-color: #F5F5F5;
+  color: #FD4100;
+}
+
+.food-dots {
+  width: 0%;
+}
+
 /* */
 /* */
 @media screen and (max-width: 1400px) {
@@ -294,6 +533,17 @@ nav a:hover {
   }
   .navContent {
     max-width: 80%;
+  }
+  .chefWrapper {
+    max-width: 80%;
+  }
+  .offersWrapper {
+    margin: 0 auto;
+    width: 70%;
+  }
+  .offersContentWrapper {
+    margin: 0 auto;
+    width: 90%;
   }
 }
 
@@ -315,6 +565,21 @@ nav a:hover {
   }
   .navContent {
     max-width: 90%;
+  }
+  .chefWrapper {
+    max-width: 80%;
+  }
+  .counterWrapper {
+    margin: 0 auto;
+    max-width: 80%;
+  }
+  .offersWrapper {
+    margin: 0 auto;
+    width: 70%;
+  }
+  .offersContentWrapper {
+    margin: 0 auto;
+    width: 85%;
   }
   /* */
 }
@@ -403,6 +668,21 @@ nav a:hover {
   .navContent {
     max-width: 90%;
   }
+  .chefWrapper {
+    max-width: 80%;
+  }
+  .counterWrapper {
+    margin: 0 auto;
+    max-width: 90%;
+  }
+  .offersWrapper {
+    margin: 0 auto;
+    width: 90%;
+  }
+  .offersContentWrapper {
+    margin: 0 auto;
+    width: 90%;
+  }
   /* */
   /* */
 }
@@ -432,6 +712,17 @@ nav a:hover {
   }
   .slideButtons button {
     margin-top: 50px;
+  }
+  .offersWrapper {
+    margin: 0 auto;
+    width: 80%;
+  }
+  .offersContentWrapper {
+    margin: 0 auto;
+    width: 80%;
+  }
+  .offersContainer {
+    width: 100%;
   }
   /* */
 }
