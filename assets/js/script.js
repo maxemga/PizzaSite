@@ -8,8 +8,9 @@ const headerOverlay = document.getElementById("headerOverlay");
 const galleryIcon1 = document.querySelectorAll(".galleryIcon1")
 const galleryIcon2 = document.querySelectorAll(".galleryIcon2");
 const scrollToHeader = document.querySelector(".scrollToHeader");
-const header = document.querySelector(".header");
+const header = document.getElementById("header");
 
+const sliderBlock = document.querySelector(".sliderBlock");
 const slideImg = document.querySelectorAll(".slideContentImg")
 const slideTitle = document.querySelectorAll(".slideContentTitle")
 const slideText = document.querySelectorAll(".slideContentText")
@@ -17,18 +18,16 @@ const slideButton1 = document.querySelectorAll(".slideContentButton1")
 const slideButton2 = document.querySelectorAll(".slideContentButton2")
 const slideClickEvent = document.querySelector(".slideClickEvent");
 
-
-
 burger.addEventListener("click", OpenNavModal);
 navModalBlack.addEventListener("click", CloseModalBlock);
 
 scrollToHeader.addEventListener("click", ScrollToHeader);
 
-
 [].forEach.call(galleryContainer,function(el){
     el.addEventListener("mouseover", AddAnimationGallery);
     el.addEventListener("mouseout", RemoveAnimationGallery);
 });
+
 
 window.addEventListener("load", AnimationSlider);
 window.addEventListener("scroll", function() {
@@ -51,10 +50,10 @@ window.addEventListener("scroll", function() {
 })
 
 function ScrollToHeader() {
-    header.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    })
+    sliderBlock.scrollIntoView({
+        block: "center",
+        behavior: "smooth"
+    });
 }
 
 function AnimationSlider() {
@@ -73,6 +72,7 @@ function AnimationSlider() {
             }, 300);
         }, 300);
     }, 800);
+    header.classList.add("activityHeader");
 }
 
 function CycleForSlider(arr) {
@@ -81,7 +81,7 @@ function CycleForSlider(arr) {
     }  
 }
 
-function AddAnimationGallery(event) {
+function AddAnimationGallery() {
     for( let i = 0; i < galleryContainer.length; i++){ 
         galleryContainerImage[i].classList.add("activeGallery");
         galleryContainerText[i].classList.add("activeGalleryText");
@@ -107,4 +107,3 @@ function CloseModalBlock() {
     navModal.classList.remove("activeNavModal");
     navModalBlack.classList.remove("activeNavBlack");
 }
-

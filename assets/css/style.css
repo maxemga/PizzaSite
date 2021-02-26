@@ -7,18 +7,31 @@ a {
   text-decoration: none;
 }
 
+button, button:visited, button:focus, button:active, button:hover {
+  outline: 0 none !important;
+}
+
 /* HEADER */
 header {
   position: fixed;
   width: 100%;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  -webkit-transform: translate(-50%, -100%);
+          transform: translate(-50%, -100%);
   z-index: 80;
+  opacity: 0;
 }
 
 header i {
   color: white;
+}
+
+.header.activityHeader {
+  -webkit-transform: translate(-50%, 0%);
+          transform: translate(-50%, 0%);
+  -webkit-transition: .3s;
+  transition: .3s;
+  opacity: 1;
 }
 
 .headerOverlay {
@@ -137,6 +150,7 @@ nav a:hover {
   opacity: 0;
   -webkit-transform: translateY(200%);
           transform: translateY(200%);
+  z-index: 50;
   cursor: pointer;
 }
 
@@ -720,6 +734,64 @@ nav a:hover {
 }
 
 /* */
+/* WORKERS */
+.workersWrapper {
+  margin: 0 auto;
+  max-width: 70%;
+}
+
+.workersContent {
+  padding: 50px 0px;
+}
+
+.workersContainer {
+  background-color: #F6F6F6;
+  position: relative;
+  margin-top: 50px;
+  padding: 60px 30px 50px 30px;
+}
+
+.workersContainer img:nth-child(2) {
+  max-width: 100px;
+  max-height: 25px;
+  margin: 0 auto;
+}
+
+.workersContainer p {
+  color: #777777;
+  margin-top: 10px;
+}
+
+.workersContainer h2 {
+  font-size: 18px;
+  color: #FD4100;
+  font-weight: bold;
+}
+
+.workersContainer h3 {
+  color: #777777;
+  font-size: 15px;
+}
+
+.workersIcon {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%, -120%);
+          transform: translate(-50%, -120%);
+  border-radius: 50%;
+  overflow: hidden;
+  height: 90px;
+  width: 90px;
+}
+
+.owl-dot {
+  color: orange;
+  outline: none;
+}
+
+/* BUTTONS */
+/* */
+/* */
 /* SUBSCRIBE */
 .subscribeBlock {
   background-image: url("../../images/bg-subscribe.jpg");
@@ -767,7 +839,7 @@ nav a:hover {
 .subscribeTitleText {
   color: white;
   font-size: 18px;
-  margin-left: 35px;
+  margin-left: 30px;
   font-weight: bold;
 }
 
@@ -1017,6 +1089,9 @@ footer {
   .subscribeWrapper {
     max-width: 80%;
   }
+  .workersWrapper {
+    max-width: 80%;
+  }
 }
 
 @media screen and (max-width: 1200px) {
@@ -1066,6 +1141,9 @@ footer {
     max-width: 90%;
   }
   .subscribeWrapper {
+    max-width: 90%;
+  }
+  .workersWrapper {
     max-width: 90%;
   }
   /* */
@@ -1162,20 +1240,19 @@ footer {
     max-width: 80%;
   }
   .counterWrapper {
-    margin: 0 auto;
     max-width: 90%;
   }
   .offersWrapper {
-    margin: 0 auto;
     width: 90%;
   }
   .offersContentWrapper {
-    margin: 0 auto;
     width: 90%;
   }
   .chefWrapper {
-    margin: 0 auto;
     max-width: 95%;
+  }
+  .workersWrapper {
+    max-width: 90%;
   }
   /* */
   /* */
@@ -1253,6 +1330,9 @@ footer {
   }
   .modalNavContent a {
     font-size: 30px;
+  }
+  .scrollToHeader {
+    display: none;
   }
   /* */
 }
