@@ -1,14 +1,15 @@
 const burger = document.getElementById("burger");
 const navModal = document.getElementById("modalNavBlock")
 const navModalBlack = document.getElementById("modalNavBlack");
-const galleryContainer = document.querySelectorAll(".galleryContainer")
-const galleryContainerImage = document.querySelectorAll(".galleryContainerImage");
-const galleryContainerText = document.querySelectorAll(".galleryContainerText");
+// const galleryContainer = document.querySelectorAll(".galleryContainer")
+// const galleryContainerImage = document.querySelectorAll(".galleryContainerImage");
+// const galleryContainerText = document.querySelectorAll(".galleryContainerText");
 const headerOverlay = document.getElementById("headerOverlay");
-const galleryIcon1 = document.querySelectorAll(".galleryIcon1")
-const galleryIcon2 = document.querySelectorAll(".galleryIcon2");
+// const galleryIcon1 = document.querySelectorAll(".galleryIcon1")
+// const galleryIcon2 = document.querySelectorAll(".galleryIcon2");
 const scrollToHeader = document.querySelector(".scrollToHeader");
 const header = document.getElementById("header");
+const counterBlock = document.querySelector(".counterBlock");
 
 const sliderBlock = document.querySelector(".sliderBlock");
 const slideImg = document.querySelectorAll(".slideContentImg")
@@ -23,31 +24,11 @@ navModalBlack.addEventListener("click", CloseModalBlock);
 
 scrollToHeader.addEventListener("click", ScrollToHeader);
 
-[].forEach.call(galleryContainer,function(el){
-    el.addEventListener("mouseover", AddAnimationGallery);
-    el.addEventListener("mouseout", RemoveAnimationGallery);
-});
-
 
 window.addEventListener("load", AnimationSlider);
-window.addEventListener("scroll", function() {
-    if(window.scrollY >= 1000) {
-        scrollToHeader.classList.add("activeScrollHeader");
-    }
-    if(window.scrollY <= 1000) {
-        scrollToHeader.classList.remove("activeScrollHeader");
-    }
-})
-window.addEventListener("scroll", function() {
-    if(window.scrollY >= 10) {
-        headerOverlay.classList.add("activityHeader")
-    }
-    else {
-        headerOverlay.classList.remove("activityHeader")
-    }
 
-    
-})
+window.addEventListener("scroll", ShowScrollBlock)
+window.addEventListener("scroll", HideScrollBlock);
 
 function ScrollToHeader() {
     sliderBlock.scrollIntoView({
@@ -79,25 +60,24 @@ function CycleForSlider(arr) {
     for (let i = 0; i < arr.length; i++) {
         arr[i].classList.add("activeSlider");      
     }  
-}
+}  
 
-function AddAnimationGallery() {
-    for( let i = 0; i < galleryContainer.length; i++){ 
-        galleryContainerImage[i].classList.add("activeGallery");
-        galleryContainerText[i].classList.add("activeGalleryText");
-        galleryIcon1[i].classList.add("activityIcon");
-        galleryIcon2[i].classList.add("activityIcon");
-	}  
+function ShowScrollBlock() {
+    if(window.pageYOffset  >= 1000) {
+        scrollToHeader.classList.add("activeScrollHeader");
+    }
+    if(window.pageYOffset  <= 1000) {
+        scrollToHeader.classList.remove("activeScrollHeader");
+    }
 }
-
-function RemoveAnimationGallery() {
-    for( let i = 0; i < galleryContainer.length; i++){ 
-        galleryContainerImage[i].classList.remove("activeGallery");
-        galleryContainerText[i].classList.remove("activeGalleryText");
-        galleryIcon1[i].classList.remove("activityIcon");
-        galleryIcon2[i].classList.remove("activityIcon");
-	}
-}    
+function HideScrollBlock() {
+    if(window.pageYOffset  >= 10) {
+        headerOverlay.classList.add("activityHeader")
+    }
+    else {
+        headerOverlay.classList.remove("activityHeader")
+    }  
+} 
 
 function OpenNavModal() {
     navModal.classList.add("activeNavModal");
@@ -107,3 +87,19 @@ function CloseModalBlock() {
     navModal.classList.remove("activeNavModal");
     navModalBlack.classList.remove("activeNavBlack");
 }
+
+// let counterOffset = Offset(counterBlock).top;
+// let counterHeight = counterBlock.offsetHeight; 
+// let counterItemPoint = window.innerHeight - counterHeight / 2;
+// if (counterHeight > window.innerHeight) {
+//     counterItemPoint = window.innerHeight - window.innerHeight / 2;
+// }
+
+// Функция расчета скролла от верха страницы до объекта 
+function Offset(el) {
+    const rect = el.getBoundingClientRect(),
+        scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+        scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    return{ top: rect.top + scrollTop, left: rect.left + scrollLeft}    
+}
+
