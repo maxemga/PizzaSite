@@ -1,0 +1,4 @@
+{
+    "PORT": 80,
+    "mongoKey": "mongodb+srv://maxim:admin@cluster0.3st5s.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+}
